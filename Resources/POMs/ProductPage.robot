@@ -1,7 +1,11 @@
 *** Settings ***
-Resource  ../LandingPage.robot
+
+Resource  ../Resources/POMs/LandingPage.robot
+
 Library  Selenium2Library
 Library  Dialogs
+Library  AppiumLibrary
+
 
 *** Variables ***
 ${ADDTOCART}  css=#add_to_cart > button > span
@@ -15,20 +19,20 @@ ${LOGINPROMPT}  css=p[class='fancybox-error']
 
 *** Keywords ***
 Add to cart
-    Wait Until Page Contains Element  ${PRODUCTTITLE}
-    Click Element  ${ADDTOCART}
+    Selenium2Library.Wait Until Page Contains Element  ${PRODUCTTITLE}
+    Selenium2Library.Click Element  ${ADDTOCART}
 
 
 Products in cart
     [Arguments]  ${number}
-    Wait Until Element Is Visible  ${CARTQUANTITY}
-    ${number}=  Get Text  ${CARTQUANTITY}
+    Selenium2Library.Wait Until Element Is Visible  ${CARTQUANTITY}
+    ${number}=  Selenium2Library.Get Text  ${CARTQUANTITY}
 
 Increase by
     [Arguments]  ${number}
-    Wait Until Element Is Visible  ${QNT_PLUS}
+    Selenium2Library.Wait Until Element Is Visible  ${QNT_PLUS}
     :FOR  ${index}  in RANGE  1  ${number}
-    \    Click Element  ${QNT_PLUS}
+    \    Selenium2Library.Click Element  ${QNT_PLUS}
 
 Open product page
     LandingPage.Open
@@ -36,19 +40,30 @@ Open product page
 
 Change size to
     [Arguments]  ${size}
-    Select From List  ${SIZEDROPDOWN}  2
+    Selenium2Library.Select From List  ${SIZEDROPDOWN}  2
 
 
 Change color to
     [Arguments]  ${color}
-    Click Element  css=a[name='${color}']
+    Selenium2Library.Click Element  css=a[name='${color}']
 
 Click favorite icon
-    Click Element  ${WISHLISTBUTTON}
+    Selenium2Library.Click Element  ${WISHLISTBUTTON}
 
 Login prompt visible
-    Wait Until Element Is Visible  ${LOGINPROMPT}
+    Selenium2Library.Wait Until Element Is Visible  ${LOGINPROMPT}
 
+Mobile_Add to cart
+    AppiumLibrary.wait until element is visible  ${ADDTOCART}
+    AppiumLibrary.click element  ${ADDTOCART}
 
+Mobile_Products in cart
+    [Arguments]  ${number}
+    AppiumLibrary.Wait Until Element Is Visible  ${CARTQUANTITY}
+    ${number}=  AppiumLibrary.Get Text  ${CARTQUANTITY}
+
+Mobile_Open Page
+    LandingPage.Mobile_Open
+    LandingPage.Mobile_Click first product
 
 

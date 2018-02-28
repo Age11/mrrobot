@@ -1,5 +1,6 @@
 *** Settings ***
 Library  Selenium2Library
+Library  AppiumLibrary
 
 *** Variables ***
 ${URL}  http://automationpractice.com/index.php
@@ -10,12 +11,21 @@ ${Frame}  css=iframe[id*='fancybox-frame']
 
 *** Keywords ***
 Open
-    Go To  ${URL}
-    Wait Until Element Is Visible  ${LOGO}
+    Selenium2Library.Go To  ${URL}
+    Selenium2Library.Wait Until Element Is Visible  ${LOGO}
 
 
 Click first product
-    Click Element  ${PRODUCT}
+    Selenium2Library.Click Element  ${PRODUCT}
 
 Open Quickview
-    Click Element  ${QUICKVIEWBUTTON}
+    Selenium2Library.Click Element  ${QUICKVIEWBUTTON}
+
+Mobile_Open
+    AppiumLibrary.Go to url  ${url}
+    AppiumLibrary.wait until element is visible  ${LOGO}
+
+Mobile_Click first product
+    AppiumLibrary.wait until element is visible  ${PRODUCT}
+    AppiumLibrary.click element   ${PRODUCT}
+

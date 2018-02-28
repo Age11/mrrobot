@@ -1,5 +1,6 @@
 *** Settings ***
 Library  Selenium2Library
+Library  AppiumLibrary
 
 *** Variables ***
 ${FIRSTCARTITEM}  css=tr[id*='product'].cart_item.first_item
@@ -8,31 +9,30 @@ ${PRODUCTSIZE}   css=td.cart_description > small > a
 
 *** Keywords ***
 Check first element
-    Wait Until Element Is Visible  ${FIRSTCARTITEM}
+    Selenium2Library.Wait Until Element Is Visible  ${FIRSTCARTITEM}
 
 Number of products is
     [Arguments]  ${number}
-    Wait Until Element Is Visible  ${FIRSTCARTITEM}
-    Log    ${number}
-    ${val}=  Get Element Attribute  ${PRODUCTCOUNT}  attribute=Value
-    log    ${val}
+    Selenium2Library.Wait Until Element Is Visible  ${FIRSTCARTITEM}
+    ${val}=  Selenium2Library.Get Element Attribute  ${PRODUCTCOUNT}  attribute=Value
     Should be equal as numbers  ${number}   ${val}
 
 Product size is
     [Arguments]  ${size}
-    Wait Until Element Is Visible  ${FIRSTCARTITEM}
-    Log    ${size}
-    ${ps}=  Get Text  ${PRODUCTSIZE}
-    Log  ${ps}
+    Selenium2Library.Wait Until Element Is Visible  ${FIRSTCARTITEM}
+    ${ps}=  Selenium2Library.Get Text  ${PRODUCTSIZE}
     Should contain  ${ps}  ${size}
 
 Product color is
     [Arguments]  ${color}
-    Wait Until Element Is Visible  ${FIRSTCARTITEM}
-    Log    ${color}
-    ${cl}=  Get Text  ${PRODUCTSIZE}
-    log  ${cl}
+    Selenium2Library.Wait Until Element Is Visible  ${FIRSTCARTITEM}
+    ${cl}=  Selenium2Library.Get Text  ${PRODUCTSIZE}
     Should Contain  ${cl}  ${color}
 
+CartSummary.Mobile_products_in-cart
+    [Arguments]  ${number}
+    AppiumLibrary.Wait Until Element Is Visible  ${FIRSTCARTITEM}
+    ${val}=  AppiumLibrary.Get Element Attribute  ${PRODUCTCOUNT}  attribute=Value
+    Should be equal as numbers  ${number}   ${val}
 
 #Color : Orange, Size : M

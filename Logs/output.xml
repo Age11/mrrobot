@@ -1,157 +1,255 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.0.2 (Python 3.6.3 on linux)" generated="20180225 11:50:04.763">
-<suite id="s1" name="Product Page" source="/home/age11/PycharmProjects/mrRobot/robot/product_page.robot">
-<test id="s1-t1" name="Increase product quantity">
-<kw name="Setup Process" library="Common" type="setup">
-<kw name="Open Browser" library="Selenium2Library">
-<doc>Opens a new browser instance to the given ``url``.</doc>
+<robot generator="Robot 3.0.2 (Python 3.6.3 on linux)" generated="20180228 20:57:01.185">
+<suite id="s1" name="Product Page Mobile" source="/home/age11/mrrobot/mrrobot/robot/product_page_mobile.robot">
+<test id="s1-t1" name="Add a product to cart and continue">
+<kw name="Mobile setup process" library="Common" type="setup">
+<doc>just demo</doc>
+<kw name="Open Application" library="AppiumLibrary">
+<doc>Opens a new application to given Appium server.</doc>
 <arguments>
-<arg>about:blank</arg>
-<arg>${BROWSER}</arg>
+<arg>${APPIUMSERVER}</arg>
+<arg>platformName=${PLATFORMNAME}</arg>
+<arg>platformVersion=${PLATFORMVERSION}</arg>
+<arg>deviceName=${DEVICENAME}</arg>
+<arg>browserName=Chrome</arg>
 </arguments>
-<msg timestamp="20180225 11:50:04.885" level="INFO">Opening browser 'Chrome' to base url 'about:blank'.</msg>
-<status status="PASS" starttime="20180225 11:50:04.885" endtime="20180225 11:50:05.291"></status>
+<status status="PASS" starttime="20180228 20:57:01.342" endtime="20180228 20:57:07.887"></status>
 </kw>
-<kw name="Maximize Browser Window" library="Selenium2Library">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20180225 11:50:05.292" endtime="20180225 11:50:05.394"></status>
+<status status="PASS" starttime="20180228 20:57:01.341" endtime="20180228 20:57:07.887"></status>
 </kw>
-<status status="PASS" starttime="20180225 11:50:04.885" endtime="20180225 11:50:05.394"></status>
-</kw>
-<kw name="Open product page" library="ProductPage">
-<kw name="Open" library="LandingPage">
-<kw name="Go To" library="Selenium2Library">
-<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<kw name="Mobile_Open product page" library="MyStoreApp">
+<kw name="Mobile_Open Page" library="ProductPage">
+<kw name="Mobile_Open" library="LandingPage">
+<kw name="Go To Url" library="AppiumLibrary">
+<doc>Opens URL in default web browser.</doc>
 <arguments>
-<arg>${URL}</arg>
+<arg>${url}</arg>
 </arguments>
-<msg timestamp="20180225 11:50:05.396" level="INFO">Opening url 'http://automationpractice.com/index.php'</msg>
-<status status="PASS" starttime="20180225 11:50:05.396" endtime="20180225 11:50:09.364"></status>
+<status status="PASS" starttime="20180228 20:57:07.888" endtime="20180228 20:57:12.190"></status>
 </kw>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<doc>Waits until element ``locator`` is visible.</doc>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
 <arguments>
 <arg>${LOGO}</arg>
 </arguments>
-<status status="PASS" starttime="20180225 11:50:09.364" endtime="20180225 11:50:09.391"></status>
+<status status="PASS" starttime="20180228 20:57:12.190" endtime="20180228 20:57:12.252"></status>
 </kw>
-<status status="PASS" starttime="20180225 11:50:05.395" endtime="20180225 11:50:09.391"></status>
+<status status="PASS" starttime="20180228 20:57:07.888" endtime="20180228 20:57:12.253"></status>
 </kw>
-<kw name="Click first product" library="LandingPage">
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click element identified by ``locator``.</doc>
+<kw name="Mobile_Click first product" library="LandingPage">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
 <arguments>
 <arg>${PRODUCT}</arg>
 </arguments>
-<msg timestamp="20180225 11:50:09.392" level="INFO">Clicking element 'css=div.right-block h5:nth-child(1) &gt; a[title='Faded Short Sleeve T-shirts'].product-name'.</msg>
-<status status="PASS" starttime="20180225 11:50:09.391" endtime="20180225 11:50:11.004"></status>
+<status status="PASS" starttime="20180228 20:57:12.253" endtime="20180228 20:57:12.320"></status>
 </kw>
-<status status="PASS" starttime="20180225 11:50:09.391" endtime="20180225 11:50:11.004"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:05.395" endtime="20180225 11:50:11.004"></status>
-</kw>
-<kw name="Increase quantity" library="MyStoreApp">
-<kw name="Increase by" library="ProductPage">
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
 <arguments>
-<arg>3</arg>
+<arg>${PRODUCT}</arg>
 </arguments>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<doc>Waits until element ``locator`` is visible.</doc>
-<arguments>
-<arg>${QNT_PLUS}</arg>
-</arguments>
-<status status="PASS" starttime="20180225 11:50:11.006" endtime="20180225 11:50:11.037"></status>
+<msg timestamp="20180228 20:57:12.320" level="INFO">Clicking element 'css=div.right-block h5:nth-child(1) &gt; a[title='Faded Short Sleeve T-shirts'].product-name'.</msg>
+<status status="PASS" starttime="20180228 20:57:12.320" endtime="20180228 20:57:14.218"></status>
 </kw>
-<kw name="${index} IN RANGE [ 1 | ${number} ]" type="for">
-<kw name="${index} = 1" type="foritem">
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click element identified by ``locator``.</doc>
-<arguments>
-<arg>${QNT_PLUS}</arg>
-</arguments>
-<msg timestamp="20180225 11:50:11.038" level="INFO">Clicking element 'css=p &gt; a.btn.btn-default.button-plus.product_quantity_up'.</msg>
-<status status="PASS" starttime="20180225 11:50:11.038" endtime="20180225 11:50:11.090"></status>
+<status status="PASS" starttime="20180228 20:57:12.253" endtime="20180228 20:57:14.219"></status>
 </kw>
-<status status="PASS" starttime="20180225 11:50:11.038" endtime="20180225 11:50:11.090"></status>
+<status status="PASS" starttime="20180228 20:57:07.888" endtime="20180228 20:57:14.219"></status>
 </kw>
-<kw name="${index} = 2" type="foritem">
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click element identified by ``locator``.</doc>
-<arguments>
-<arg>${QNT_PLUS}</arg>
-</arguments>
-<msg timestamp="20180225 11:50:11.091" level="INFO">Clicking element 'css=p &gt; a.btn.btn-default.button-plus.product_quantity_up'.</msg>
-<status status="PASS" starttime="20180225 11:50:11.091" endtime="20180225 11:50:11.162"></status>
+<status status="PASS" starttime="20180228 20:57:07.887" endtime="20180228 20:57:14.219"></status>
 </kw>
-<status status="PASS" starttime="20180225 11:50:11.090" endtime="20180225 11:50:11.162"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:11.037" endtime="20180225 11:50:11.162"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:11.006" endtime="20180225 11:50:11.163"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:11.005" endtime="20180225 11:50:11.163"></status>
-</kw>
-<kw name="Add product to cart" library="MyStoreApp">
-<kw name="Add to cart" library="ProductPage">
-<kw name="Wait Until Page Contains Element" library="Selenium2Library">
-<doc>Waits until element ``locator`` appears on current page.</doc>
-<arguments>
-<arg>${PRODUCTTITLE}</arg>
-</arguments>
-<status status="PASS" starttime="20180225 11:50:11.165" endtime="20180225 11:50:11.188"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click element identified by ``locator``.</doc>
+<kw name="Mobile_Add product to cart" library="MyStoreApp">
+<kw name="Mobile_Add to cart" library="ProductPage">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
 <arguments>
 <arg>${ADDTOCART}</arg>
 </arguments>
-<msg timestamp="20180225 11:50:11.188" level="INFO">Clicking element 'css=#add_to_cart &gt; button &gt; span'.</msg>
-<status status="PASS" starttime="20180225 11:50:11.188" endtime="20180225 11:50:11.248"></status>
+<status status="PASS" starttime="20180228 20:57:14.220" endtime="20180228 20:57:14.290"></status>
 </kw>
-<status status="PASS" starttime="20180225 11:50:11.165" endtime="20180225 11:50:11.248"></status>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${ADDTOCART}</arg>
+</arguments>
+<msg timestamp="20180228 20:57:14.291" level="INFO">Clicking element 'css=#add_to_cart &gt; button &gt; span'.</msg>
+<status status="PASS" starttime="20180228 20:57:14.291" endtime="20180228 20:57:14.569"></status>
 </kw>
-<status status="PASS" starttime="20180225 11:50:11.164" endtime="20180225 11:50:11.248"></status>
+<status status="PASS" starttime="20180228 20:57:14.220" endtime="20180228 20:57:14.570"></status>
 </kw>
-<kw name="Three Products added to cart" library="MyStoreApp">
-<kw name="Proceed checkout" library="ProceedCheckoutPage">
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<doc>Waits until element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20180228 20:57:14.219" endtime="20180228 20:57:14.570"></status>
+</kw>
+<kw name="Mobile_Dismiss via Continue Shopping" library="MyStoreApp">
+<kw name="Mobile_Continue shopping" library="ProceedCheckoutPage">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${CONTINUESHOPPING}</arg>
+</arguments>
+<status status="PASS" starttime="20180228 20:57:14.571" endtime="20180228 20:57:15.271"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${CONTINUESHOPPING}</arg>
+</arguments>
+<msg timestamp="20180228 20:57:15.273" level="INFO">Clicking element 'css=div.button-container &gt; span.continue.btn.btn-default.button.exclusive-medium'.</msg>
+<status status="PASS" starttime="20180228 20:57:15.272" endtime="20180228 20:57:15.497"></status>
+</kw>
+<status status="PASS" starttime="20180228 20:57:14.570" endtime="20180228 20:57:15.497"></status>
+</kw>
+<status status="PASS" starttime="20180228 20:57:14.570" endtime="20180228 20:57:15.497"></status>
+</kw>
+<kw name="Mobile_One Product added to cart" library="MyStoreApp">
+<kw name="Mobile_Products in cart" library="ProductPage">
+<arguments>
+<arg>1</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${CARTQUANTITY}</arg>
+</arguments>
+<status status="PASS" starttime="20180228 20:57:15.499" endtime="20180228 20:57:15.607"></status>
+</kw>
+<kw name="Get Text" library="AppiumLibrary">
+<doc>Get element text (for hybrid and mobile browser use `xpath` locator, others might cause problem)</doc>
+<arguments>
+<arg>${CARTQUANTITY}</arg>
+</arguments>
+<assign>
+<var>${number}</var>
+</assign>
+<msg timestamp="20180228 20:57:15.685" level="INFO">Element 'css=div[class='shopping_cart'] &gt; a &gt; span.ajax_cart_quantity:nth-child(2)' text is '1' </msg>
+<msg timestamp="20180228 20:57:15.685" level="INFO">${number} = 1</msg>
+<status status="PASS" starttime="20180228 20:57:15.607" endtime="20180228 20:57:15.685"></status>
+</kw>
+<status status="PASS" starttime="20180228 20:57:15.498" endtime="20180228 20:57:15.685"></status>
+</kw>
+<status status="PASS" starttime="20180228 20:57:15.498" endtime="20180228 20:57:15.685"></status>
+</kw>
+<kw name="Mobile teardown process" library="Common" type="teardown">
+<kw name="Close All Applications" library="AppiumLibrary">
+<doc>Closes all open applications.</doc>
+<status status="PASS" starttime="20180228 20:57:15.686" endtime="20180228 20:57:16.585"></status>
+</kw>
+<status status="PASS" starttime="20180228 20:57:15.686" endtime="20180228 20:57:16.585"></status>
+</kw>
+<status status="PASS" starttime="20180228 20:57:01.341" endtime="20180228 20:57:16.585" critical="yes"></status>
+</test>
+<test id="s1-t2" name="Add a product to cart and checkout">
+<kw name="Mobile setup process" library="Common" type="setup">
+<doc>just demo</doc>
+<kw name="Open Application" library="AppiumLibrary">
+<doc>Opens a new application to given Appium server.</doc>
+<arguments>
+<arg>${APPIUMSERVER}</arg>
+<arg>platformName=${PLATFORMNAME}</arg>
+<arg>platformVersion=${PLATFORMVERSION}</arg>
+<arg>deviceName=${DEVICENAME}</arg>
+<arg>browserName=Chrome</arg>
+</arguments>
+<status status="PASS" starttime="20180228 20:57:16.588" endtime="20180228 20:57:23.679"></status>
+</kw>
+<status status="PASS" starttime="20180228 20:57:16.587" endtime="20180228 20:57:23.680"></status>
+</kw>
+<kw name="Mobile_Open product page" library="MyStoreApp">
+<kw name="Mobile_Open Page" library="ProductPage">
+<kw name="Mobile_Open" library="LandingPage">
+<kw name="Go To Url" library="AppiumLibrary">
+<doc>Opens URL in default web browser.</doc>
+<arguments>
+<arg>${url}</arg>
+</arguments>
+<status status="PASS" starttime="20180228 20:57:23.681" endtime="20180228 20:57:28.458"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${LOGO}</arg>
+</arguments>
+<status status="PASS" starttime="20180228 20:57:28.458" endtime="20180228 20:57:28.507"></status>
+</kw>
+<status status="PASS" starttime="20180228 20:57:23.681" endtime="20180228 20:57:28.507"></status>
+</kw>
+<kw name="Mobile_Click first product" library="LandingPage">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${PRODUCT}</arg>
+</arguments>
+<status status="PASS" starttime="20180228 20:57:28.508" endtime="20180228 20:57:28.581"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${PRODUCT}</arg>
+</arguments>
+<msg timestamp="20180228 20:57:28.581" level="INFO">Clicking element 'css=div.right-block h5:nth-child(1) &gt; a[title='Faded Short Sleeve T-shirts'].product-name'.</msg>
+<status status="PASS" starttime="20180228 20:57:28.581" endtime="20180228 20:57:30.336"></status>
+</kw>
+<status status="PASS" starttime="20180228 20:57:28.508" endtime="20180228 20:57:30.337"></status>
+</kw>
+<status status="PASS" starttime="20180228 20:57:23.680" endtime="20180228 20:57:30.337"></status>
+</kw>
+<status status="PASS" starttime="20180228 20:57:23.680" endtime="20180228 20:57:30.337"></status>
+</kw>
+<kw name="Mobile_Add product to cart" library="MyStoreApp">
+<kw name="Mobile_Add to cart" library="ProductPage">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${ADDTOCART}</arg>
+</arguments>
+<status status="PASS" starttime="20180228 20:57:30.339" endtime="20180228 20:57:30.395"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${ADDTOCART}</arg>
+</arguments>
+<msg timestamp="20180228 20:57:30.396" level="INFO">Clicking element 'css=#add_to_cart &gt; button &gt; span'.</msg>
+<status status="PASS" starttime="20180228 20:57:30.395" endtime="20180228 20:57:30.616"></status>
+</kw>
+<status status="PASS" starttime="20180228 20:57:30.339" endtime="20180228 20:57:30.617"></status>
+</kw>
+<status status="PASS" starttime="20180228 20:57:30.338" endtime="20180228 20:57:30.617"></status>
+</kw>
+<kw name="Mobile_Proceed to the cart" library="MyStoreApp">
+<kw name="Mobile_Proceed checkout" library="ProceedCheckoutPage">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
 <arguments>
 <arg>${CHECKOUT}</arg>
 </arguments>
-<status status="PASS" starttime="20180225 11:50:11.249" endtime="20180225 11:50:12.008"></status>
+<status status="PASS" starttime="20180228 20:57:30.618" endtime="20180228 20:57:31.261"></status>
 </kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click element identified by ``locator``.</doc>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
 <arguments>
 <arg>${CHECKOUT}</arg>
 </arguments>
-<msg timestamp="20180225 11:50:12.008" level="INFO">Clicking element 'css=a[title='Proceed to checkout'].btn.btn-default'.</msg>
-<status status="PASS" starttime="20180225 11:50:12.008" endtime="20180225 11:50:13.668"></status>
+<msg timestamp="20180228 20:57:31.262" level="INFO">Clicking element 'css=a[title='Proceed to checkout'].btn.btn-default'.</msg>
+<status status="PASS" starttime="20180228 20:57:31.262" endtime="20180228 20:57:32.739"></status>
 </kw>
-<status status="PASS" starttime="20180225 11:50:11.249" endtime="20180225 11:50:13.670"></status>
+<status status="PASS" starttime="20180228 20:57:30.618" endtime="20180228 20:57:32.740"></status>
 </kw>
-<kw name="Number of products is" library="CartSummary">
+<status status="PASS" starttime="20180228 20:57:30.617" endtime="20180228 20:57:32.740"></status>
+</kw>
+<kw name="Mobile_Product added to cart" library="MyStoreApp">
+<kw name="CartSummary.Mobile_products_in-cart" library="CartSummary">
 <arguments>
-<arg>3</arg>
+<arg>1</arg>
 </arguments>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<doc>Waits until element ``locator`` is visible.</doc>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
 <arguments>
 <arg>${FIRSTCARTITEM}</arg>
 </arguments>
-<status status="PASS" starttime="20180225 11:50:13.673" endtime="20180225 11:50:13.766"></status>
+<status status="PASS" starttime="20180228 20:57:32.742" endtime="20180228 20:57:32.865"></status>
 </kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${number}</arg>
-</arguments>
-<msg timestamp="20180225 11:50:13.766" level="INFO">3</msg>
-<status status="PASS" starttime="20180225 11:50:13.766" endtime="20180225 11:50:13.767"></status>
-</kw>
-<kw name="Get Element Attribute" library="Selenium2Library">
-<doc>Returns value of ``attribute`` from element ``locator``.</doc>
+<kw name="Get Element Attribute" library="AppiumLibrary">
+<doc>Get element attribute using given attribute: name, value,...</doc>
 <arguments>
 <arg>${PRODUCTCOUNT}</arg>
 <arg>attribute=Value</arg>
@@ -159,16 +257,9 @@
 <assign>
 <var>${val}</var>
 </assign>
-<msg timestamp="20180225 11:50:13.796" level="INFO">${val} = 3</msg>
-<status status="PASS" starttime="20180225 11:50:13.767" endtime="20180225 11:50:13.797"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${val}</arg>
-</arguments>
-<msg timestamp="20180225 11:50:13.797" level="INFO">3</msg>
-<status status="PASS" starttime="20180225 11:50:13.797" endtime="20180225 11:50:13.797"></status>
+<msg timestamp="20180228 20:57:32.980" level="INFO">Element 'css=input.cart_quantity_input.form-control.grey' attribute 'Value' value '1' </msg>
+<msg timestamp="20180228 20:57:32.981" level="INFO">${val} = 1</msg>
+<status status="PASS" starttime="20180228 20:57:32.865" endtime="20180228 20:57:32.981"></status>
 </kw>
 <kw name="Should Be Equal As Numbers" library="BuiltIn">
 <doc>Fails if objects are unequal after converting them to real numbers.</doc>
@@ -176,452 +267,36 @@
 <arg>${number}</arg>
 <arg>${val}</arg>
 </arguments>
-<status status="PASS" starttime="20180225 11:50:13.798" endtime="20180225 11:50:13.798"></status>
+<status status="PASS" starttime="20180228 20:57:32.981" endtime="20180228 20:57:32.981"></status>
 </kw>
-<status status="PASS" starttime="20180225 11:50:13.671" endtime="20180225 11:50:13.798"></status>
+<status status="PASS" starttime="20180228 20:57:32.741" endtime="20180228 20:57:32.982"></status>
 </kw>
-<status status="PASS" starttime="20180225 11:50:11.248" endtime="20180225 11:50:13.798"></status>
+<status status="PASS" starttime="20180228 20:57:32.740" endtime="20180228 20:57:32.982"></status>
 </kw>
-<kw name="Teardowm Process" library="Common" type="teardown">
-<kw name="Close All Browsers" library="Selenium2Library">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20180225 11:50:13.800" endtime="20180225 11:50:13.860"></status>
+<kw name="Mobile teardown process" library="Common" type="teardown">
+<kw name="Close All Applications" library="AppiumLibrary">
+<doc>Closes all open applications.</doc>
+<status status="PASS" starttime="20180228 20:57:32.982" endtime="20180228 20:57:34.005"></status>
 </kw>
-<status status="PASS" starttime="20180225 11:50:13.799" endtime="20180225 11:50:13.860"></status>
+<status status="PASS" starttime="20180228 20:57:32.982" endtime="20180228 20:57:34.005"></status>
 </kw>
-<status status="PASS" starttime="20180225 11:50:04.884" endtime="20180225 11:50:13.860" critical="yes"></status>
-</test>
-<test id="s1-t2" name="Change product color">
-<kw name="Setup Process" library="Common" type="setup">
-<kw name="Open Browser" library="Selenium2Library">
-<doc>Opens a new browser instance to the given ``url``.</doc>
-<arguments>
-<arg>about:blank</arg>
-<arg>${BROWSER}</arg>
-</arguments>
-<msg timestamp="20180225 11:50:13.864" level="INFO">Opening browser 'Chrome' to base url 'about:blank'.</msg>
-<status status="PASS" starttime="20180225 11:50:13.863" endtime="20180225 11:50:15.323"></status>
-</kw>
-<kw name="Maximize Browser Window" library="Selenium2Library">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20180225 11:50:15.324" endtime="20180225 11:50:15.429"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:13.862" endtime="20180225 11:50:15.429"></status>
-</kw>
-<kw name="Open product page" library="ProductPage">
-<kw name="Open" library="LandingPage">
-<kw name="Go To" library="Selenium2Library">
-<doc>Navigates the active browser instance to the provided ``url``.</doc>
-<arguments>
-<arg>${URL}</arg>
-</arguments>
-<msg timestamp="20180225 11:50:15.431" level="INFO">Opening url 'http://automationpractice.com/index.php'</msg>
-<status status="PASS" starttime="20180225 11:50:15.431" endtime="20180225 11:50:19.319"></status>
-</kw>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<doc>Waits until element ``locator`` is visible.</doc>
-<arguments>
-<arg>${LOGO}</arg>
-</arguments>
-<status status="PASS" starttime="20180225 11:50:19.319" endtime="20180225 11:50:19.346"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:15.431" endtime="20180225 11:50:19.347"></status>
-</kw>
-<kw name="Click first product" library="LandingPage">
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click element identified by ``locator``.</doc>
-<arguments>
-<arg>${PRODUCT}</arg>
-</arguments>
-<msg timestamp="20180225 11:50:19.347" level="INFO">Clicking element 'css=div.right-block h5:nth-child(1) &gt; a[title='Faded Short Sleeve T-shirts'].product-name'.</msg>
-<status status="PASS" starttime="20180225 11:50:19.347" endtime="20180225 11:50:20.909"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:19.347" endtime="20180225 11:50:20.909"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:15.430" endtime="20180225 11:50:20.910"></status>
-</kw>
-<kw name="Select blue color" library="MyStoreApp">
-<kw name="Change color to" library="ProductPage">
-<arguments>
-<arg>Blue</arg>
-</arguments>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click element identified by ``locator``.</doc>
-<arguments>
-<arg>css=a[name='${color}']</arg>
-</arguments>
-<msg timestamp="20180225 11:50:20.913" level="INFO">Clicking element 'css=a[name='Blue']'.</msg>
-<status status="PASS" starttime="20180225 11:50:20.912" endtime="20180225 11:50:21.002"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:20.911" endtime="20180225 11:50:21.002"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:20.910" endtime="20180225 11:50:21.003"></status>
-</kw>
-<kw name="Add product to cart" library="MyStoreApp">
-<kw name="Add to cart" library="ProductPage">
-<kw name="Wait Until Page Contains Element" library="Selenium2Library">
-<doc>Waits until element ``locator`` appears on current page.</doc>
-<arguments>
-<arg>${PRODUCTTITLE}</arg>
-</arguments>
-<status status="PASS" starttime="20180225 11:50:21.006" endtime="20180225 11:50:21.028"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click element identified by ``locator``.</doc>
-<arguments>
-<arg>${ADDTOCART}</arg>
-</arguments>
-<msg timestamp="20180225 11:50:21.028" level="INFO">Clicking element 'css=#add_to_cart &gt; button &gt; span'.</msg>
-<status status="PASS" starttime="20180225 11:50:21.028" endtime="20180225 11:50:21.107"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:21.004" endtime="20180225 11:50:21.108"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:21.004" endtime="20180225 11:50:21.108"></status>
-</kw>
-<kw name="Proceed checkout" library="ProceedCheckoutPage">
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<doc>Waits until element ``locator`` is visible.</doc>
-<arguments>
-<arg>${CHECKOUT}</arg>
-</arguments>
-<status status="PASS" starttime="20180225 11:50:21.109" endtime="20180225 11:50:21.746"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click element identified by ``locator``.</doc>
-<arguments>
-<arg>${CHECKOUT}</arg>
-</arguments>
-<msg timestamp="20180225 11:50:21.747" level="INFO">Clicking element 'css=a[title='Proceed to checkout'].btn.btn-default'.</msg>
-<status status="PASS" starttime="20180225 11:50:21.747" endtime="20180225 11:50:23.065"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:21.108" endtime="20180225 11:50:23.065"></status>
-</kw>
-<kw name="Blue product added to cart" library="MyStoreApp">
-<kw name="Product color is" library="CartSummary">
-<arguments>
-<arg>Blue</arg>
-</arguments>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<doc>Waits until element ``locator`` is visible.</doc>
-<arguments>
-<arg>${FIRSTCARTITEM}</arg>
-</arguments>
-<status status="PASS" starttime="20180225 11:50:23.070" endtime="20180225 11:50:23.175"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${color}</arg>
-</arguments>
-<msg timestamp="20180225 11:50:23.176" level="INFO">Blue</msg>
-<status status="PASS" starttime="20180225 11:50:23.176" endtime="20180225 11:50:23.176"></status>
-</kw>
-<kw name="Get Text" library="Selenium2Library">
-<doc>Returns the text value of element identified by ``locator``.</doc>
-<arguments>
-<arg>${PRODUCTSIZE}</arg>
-</arguments>
-<assign>
-<var>${cl}</var>
-</assign>
-<msg timestamp="20180225 11:50:23.222" level="INFO">${cl} = Color : Blue, Size : S</msg>
-<status status="PASS" starttime="20180225 11:50:23.177" endtime="20180225 11:50:23.222"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${cl}</arg>
-</arguments>
-<msg timestamp="20180225 11:50:23.222" level="INFO">Color : Blue, Size : S</msg>
-<status status="PASS" starttime="20180225 11:50:23.222" endtime="20180225 11:50:23.222"></status>
-</kw>
-<kw name="Should Contain" library="BuiltIn">
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<arguments>
-<arg>${cl}</arg>
-<arg>${color}</arg>
-</arguments>
-<status status="PASS" starttime="20180225 11:50:23.223" endtime="20180225 11:50:23.223"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:23.069" endtime="20180225 11:50:23.223"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:23.067" endtime="20180225 11:50:23.223"></status>
-</kw>
-<kw name="Teardowm Process" library="Common" type="teardown">
-<kw name="Close All Browsers" library="Selenium2Library">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20180225 11:50:23.224" endtime="20180225 11:50:23.282"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:23.223" endtime="20180225 11:50:23.282"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:13.861" endtime="20180225 11:50:23.283" critical="yes"></status>
-</test>
-<test id="s1-t3" name="Change sizze">
-<kw name="Setup Process" library="Common" type="setup">
-<kw name="Open Browser" library="Selenium2Library">
-<doc>Opens a new browser instance to the given ``url``.</doc>
-<arguments>
-<arg>about:blank</arg>
-<arg>${BROWSER}</arg>
-</arguments>
-<msg timestamp="20180225 11:50:23.285" level="INFO">Opening browser 'Chrome' to base url 'about:blank'.</msg>
-<status status="PASS" starttime="20180225 11:50:23.285" endtime="20180225 11:50:24.784"></status>
-</kw>
-<kw name="Maximize Browser Window" library="Selenium2Library">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20180225 11:50:24.785" endtime="20180225 11:50:24.927"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:23.284" endtime="20180225 11:50:24.928"></status>
-</kw>
-<kw name="Open product page" library="ProductPage">
-<kw name="Open" library="LandingPage">
-<kw name="Go To" library="Selenium2Library">
-<doc>Navigates the active browser instance to the provided ``url``.</doc>
-<arguments>
-<arg>${URL}</arg>
-</arguments>
-<msg timestamp="20180225 11:50:24.933" level="INFO">Opening url 'http://automationpractice.com/index.php'</msg>
-<status status="PASS" starttime="20180225 11:50:24.932" endtime="20180225 11:50:33.615"></status>
-</kw>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<doc>Waits until element ``locator`` is visible.</doc>
-<arguments>
-<arg>${LOGO}</arg>
-</arguments>
-<status status="PASS" starttime="20180225 11:50:33.616" endtime="20180225 11:50:33.644"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:24.930" endtime="20180225 11:50:33.644"></status>
-</kw>
-<kw name="Click first product" library="LandingPage">
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click element identified by ``locator``.</doc>
-<arguments>
-<arg>${PRODUCT}</arg>
-</arguments>
-<msg timestamp="20180225 11:50:33.645" level="INFO">Clicking element 'css=div.right-block h5:nth-child(1) &gt; a[title='Faded Short Sleeve T-shirts'].product-name'.</msg>
-<status status="PASS" starttime="20180225 11:50:33.644" endtime="20180225 11:50:35.105"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:33.644" endtime="20180225 11:50:35.106"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:24.929" endtime="20180225 11:50:35.106"></status>
-</kw>
-<kw name="Select size for product M" library="MyStoreApp">
-<kw name="Change size to" library="ProductPage">
-<arguments>
-<arg>M</arg>
-</arguments>
-<kw name="Select From List" library="Selenium2Library">
-<doc>Deprecated. Use `Select From List By Label/Value/Index` instead.</doc>
-<arguments>
-<arg>${SIZEDROPDOWN}</arg>
-<arg>2</arg>
-</arguments>
-<msg timestamp="20180225 11:50:35.109" level="INFO">Selecting option(s) '2' from list 'css=#group_1.attribute_select'.</msg>
-<status status="PASS" starttime="20180225 11:50:35.108" endtime="20180225 11:50:35.210"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:35.107" endtime="20180225 11:50:35.210"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:35.107" endtime="20180225 11:50:35.210"></status>
-</kw>
-<kw name="Add product to cart" library="MyStoreApp">
-<kw name="Add to cart" library="ProductPage">
-<kw name="Wait Until Page Contains Element" library="Selenium2Library">
-<doc>Waits until element ``locator`` appears on current page.</doc>
-<arguments>
-<arg>${PRODUCTTITLE}</arg>
-</arguments>
-<status status="PASS" starttime="20180225 11:50:35.212" endtime="20180225 11:50:35.227"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click element identified by ``locator``.</doc>
-<arguments>
-<arg>${ADDTOCART}</arg>
-</arguments>
-<msg timestamp="20180225 11:50:35.228" level="INFO">Clicking element 'css=#add_to_cart &gt; button &gt; span'.</msg>
-<status status="PASS" starttime="20180225 11:50:35.227" endtime="20180225 11:50:35.327"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:35.211" endtime="20180225 11:50:35.327"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:35.211" endtime="20180225 11:50:35.327"></status>
-</kw>
-<kw name="Proceed checkout" library="ProceedCheckoutPage">
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<doc>Waits until element ``locator`` is visible.</doc>
-<arguments>
-<arg>${CHECKOUT}</arg>
-</arguments>
-<status status="PASS" starttime="20180225 11:50:35.328" endtime="20180225 11:50:35.900"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click element identified by ``locator``.</doc>
-<arguments>
-<arg>${CHECKOUT}</arg>
-</arguments>
-<msg timestamp="20180225 11:50:35.901" level="INFO">Clicking element 'css=a[title='Proceed to checkout'].btn.btn-default'.</msg>
-<status status="PASS" starttime="20180225 11:50:35.901" endtime="20180225 11:50:37.195"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:35.328" endtime="20180225 11:50:37.196"></status>
-</kw>
-<kw name="M product added to cart" library="MyStoreApp">
-<kw name="Product size is" library="CartSummary">
-<arguments>
-<arg>M</arg>
-</arguments>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<doc>Waits until element ``locator`` is visible.</doc>
-<arguments>
-<arg>${FIRSTCARTITEM}</arg>
-</arguments>
-<status status="PASS" starttime="20180225 11:50:37.200" endtime="20180225 11:50:37.292"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${size}</arg>
-</arguments>
-<msg timestamp="20180225 11:50:37.293" level="INFO">M</msg>
-<status status="PASS" starttime="20180225 11:50:37.292" endtime="20180225 11:50:37.293"></status>
-</kw>
-<kw name="Get Text" library="Selenium2Library">
-<doc>Returns the text value of element identified by ``locator``.</doc>
-<arguments>
-<arg>${PRODUCTSIZE}</arg>
-</arguments>
-<assign>
-<var>${ps}</var>
-</assign>
-<msg timestamp="20180225 11:50:37.328" level="INFO">${ps} = Color : Orange, Size : M</msg>
-<status status="PASS" starttime="20180225 11:50:37.293" endtime="20180225 11:50:37.328"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${ps}</arg>
-</arguments>
-<msg timestamp="20180225 11:50:37.328" level="INFO">Color : Orange, Size : M</msg>
-<status status="PASS" starttime="20180225 11:50:37.328" endtime="20180225 11:50:37.328"></status>
-</kw>
-<kw name="Should Contain" library="BuiltIn">
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<arguments>
-<arg>${ps}</arg>
-<arg>${size}</arg>
-</arguments>
-<status status="PASS" starttime="20180225 11:50:37.328" endtime="20180225 11:50:37.329"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:37.199" endtime="20180225 11:50:37.329"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:37.197" endtime="20180225 11:50:37.329"></status>
-</kw>
-<kw name="Teardowm Process" library="Common" type="teardown">
-<kw name="Close All Browsers" library="Selenium2Library">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20180225 11:50:37.329" endtime="20180225 11:50:37.387"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:37.329" endtime="20180225 11:50:37.387"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:23.283" endtime="20180225 11:50:37.387" critical="yes"></status>
-</test>
-<test id="s1-t4" name="Add to wishlist">
-<kw name="Setup Process" library="Common" type="setup">
-<kw name="Open Browser" library="Selenium2Library">
-<doc>Opens a new browser instance to the given ``url``.</doc>
-<arguments>
-<arg>about:blank</arg>
-<arg>${BROWSER}</arg>
-</arguments>
-<msg timestamp="20180225 11:50:37.390" level="INFO">Opening browser 'Chrome' to base url 'about:blank'.</msg>
-<status status="PASS" starttime="20180225 11:50:37.389" endtime="20180225 11:50:38.833"></status>
-</kw>
-<kw name="Maximize Browser Window" library="Selenium2Library">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20180225 11:50:38.833" endtime="20180225 11:50:38.935"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:37.389" endtime="20180225 11:50:38.936"></status>
-</kw>
-<kw name="Open product page" library="ProductPage">
-<kw name="Open" library="LandingPage">
-<kw name="Go To" library="Selenium2Library">
-<doc>Navigates the active browser instance to the provided ``url``.</doc>
-<arguments>
-<arg>${URL}</arg>
-</arguments>
-<msg timestamp="20180225 11:50:38.937" level="INFO">Opening url 'http://automationpractice.com/index.php'</msg>
-<status status="PASS" starttime="20180225 11:50:38.937" endtime="20180225 11:50:43.066"></status>
-</kw>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<doc>Waits until element ``locator`` is visible.</doc>
-<arguments>
-<arg>${LOGO}</arg>
-</arguments>
-<status status="PASS" starttime="20180225 11:50:43.066" endtime="20180225 11:50:43.095"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:38.937" endtime="20180225 11:50:43.095"></status>
-</kw>
-<kw name="Click first product" library="LandingPage">
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click element identified by ``locator``.</doc>
-<arguments>
-<arg>${PRODUCT}</arg>
-</arguments>
-<msg timestamp="20180225 11:50:43.096" level="INFO">Clicking element 'css=div.right-block h5:nth-child(1) &gt; a[title='Faded Short Sleeve T-shirts'].product-name'.</msg>
-<status status="PASS" starttime="20180225 11:50:43.095" endtime="20180225 11:50:45.526"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:43.095" endtime="20180225 11:50:45.527"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:38.936" endtime="20180225 11:50:45.529"></status>
-</kw>
-<kw name="Favorite product" library="MyStoreApp">
-<kw name="Click favorite icon" library="ProductPage">
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click element identified by ``locator``.</doc>
-<arguments>
-<arg>${WISHLISTBUTTON}</arg>
-</arguments>
-<msg timestamp="20180225 11:50:45.533" level="INFO">Clicking element 'css=#wishlist_button'.</msg>
-<status status="PASS" starttime="20180225 11:50:45.532" endtime="20180225 11:50:45.624"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:45.531" endtime="20180225 11:50:45.624"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:45.530" endtime="20180225 11:50:45.624"></status>
-</kw>
-<kw name="Login prompt displayed" library="MyStoreApp">
-<kw name="Login prompt visible" library="ProductPage">
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<doc>Waits until element ``locator`` is visible.</doc>
-<arguments>
-<arg>${LOGINPROMPT}</arg>
-</arguments>
-<status status="PASS" starttime="20180225 11:50:45.625" endtime="20180225 11:50:46.112"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:45.625" endtime="20180225 11:50:46.112"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:45.624" endtime="20180225 11:50:46.112"></status>
-</kw>
-<kw name="Teardowm Process" library="Common" type="teardown">
-<kw name="Close All Browsers" library="Selenium2Library">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20180225 11:50:46.113" endtime="20180225 11:50:46.175"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:46.113" endtime="20180225 11:50:46.175"></status>
-</kw>
-<status status="PASS" starttime="20180225 11:50:37.388" endtime="20180225 11:50:46.175" critical="yes"></status>
+<status status="PASS" starttime="20180228 20:57:16.586" endtime="20180228 20:57:34.005" critical="yes"></status>
 </test>
 <doc>http://automationpractice.com/index.php flow automation</doc>
-<status status="PASS" starttime="20180225 11:50:04.764" endtime="20180225 11:50:46.177"></status>
+<status status="PASS" starttime="20180228 20:57:01.186" endtime="20180228 20:57:34.006"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="4" fail="0">Critical Tests</stat>
-<stat pass="4" fail="0">All Tests</stat>
+<stat pass="2" fail="0">Critical Tests</stat>
+<stat pass="2" fail="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="4" fail="0" id="s1" name="Product Page">Product Page</stat>
+<stat pass="2" fail="0" id="s1" name="Product Page Mobile">Product Page Mobile</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20180225 11:50:04.868" level="ERROR">Error in file '/home/age11/PycharmProjects/mrRobot/Resources/POMs/ProductPage.robot': Resource file '../LandingPage.robot' does not exist.</msg>
+<msg timestamp="20180228 20:57:01.319" level="ERROR">Error in file '/home/age11/mrrobot/mrrobot/Resources/POMs/ProductPage.robot': Resource file '../Resources/POMs/LandingPage.robot' does not exist.</msg>
 </errors>
 </robot>

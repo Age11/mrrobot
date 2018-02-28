@@ -62,3 +62,22 @@ Favorite product
 
 Login prompt displayed
     ProductPage.Login prompt visible
+
+
+Mobile_Open product page
+    ProductPage.Mobile_Open Page
+
+Mobile_Add product to cart
+    ProductPage.Mobile_Add to cart
+
+Mobile_One Product added to cart
+    ProductPage.Mobile_Products in cart  1
+
+Mobile_Proceed to the cart
+    ProceedCheckoutPage.Mobile_Proceed checkout
+
+Mobile_Dismiss via Continue Shopping
+    ProceedCheckoutPage.Mobile_Continue Shopping
+
+Mobile_Product added to cart
+    CartSummary.Mobile_products_in-cart  1
